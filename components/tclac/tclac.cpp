@@ -574,7 +574,7 @@ void tclacClimate::sendData(uint8_t * message, uint8_t size) {
 }
 
 // Преобразование байта в читабельный формат
-String tclacClimate::getHex(const uint8_t *message, uint8_t size) {
+String tclacClimate::getHex(uint8_t *message, uint8_t size) {
   std::ostringstream oss;
   // print each byte as two uppercase hex digits
   for (uint8_t i = 0; i < size; ++i) {
