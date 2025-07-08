@@ -7,6 +7,7 @@
 #include "esphome.h"
 #include "esphome/core/defines.h"
 #include "tclac.h"
+#include <Arduino.h>
 
 namespace esphome{
 namespace tclac{
@@ -574,7 +575,7 @@ void tclacClimate::sendData(uint8_t * message, uint8_t size) {
 String tclacClimate::getHex(uint8_t *message, uint8_t size) {
 	String raw;
 	for (int i = 0; i < size; i++) {
-		raw += "\n" + String(message[i]);
+		raw += "\n" + String((int)message[i], HEX);
 	}
 	std::transform(raw.begin(), raw.end(), raw.begin(), ::toupper);
 	return raw;
