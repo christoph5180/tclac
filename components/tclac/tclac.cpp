@@ -576,7 +576,7 @@ String tclacClimate::getHex(uint8_t *message, uint8_t size) {
 	for (int i = 0; i < size; i++) {
 		raw += "\n" + String(message[i]);
 	}
-	raw.toUpperCase();
+	std::transform(raw.begin(), raw.end(), raw.begin(), ::toupper);
 	return raw;
 }
 
