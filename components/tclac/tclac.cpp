@@ -574,15 +574,25 @@ void tclacClimate::sendData(uint8_t * message, uint8_t size) {
 }
 
 // Преобразование байта в читабельный формат
-String tclacClimate::getHex(uint8_t *message, uint8_t size) {
-	String raw;
-	std::ostringstream oss;
-	for (int i = 0; i < len; ++i) {
-	  oss << "\n" << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(message[i]);
-	}
-	std::string raw = oss.str();
-	std::transform(raw.begin(), raw.end(), raw.begin(), ::toupper);
-	return raw;
+String tclacClimate::getHex(const uint8_t *message, uint8_t size) {
+  std::ostringstream oss;
+  // print each byte as two uppercase hex digits
+  for (uint8_t i = 0; i < size; ++i) {
+    oss << std::hex 
+        << std::uppercase 
+        << std::setw(2) 
+        << std::setfill('0') 
+        << static_cast<int>(message[i]);
+    if (i + 1 < size)
+      oss << ' ';  // optional separator
+  }
+  // grab the std::string, ensure uppercase
+  std::string s = oss.str();
+  // (oss.str() is already uppercase thanks to std::uppercase, so
+  // this transform is optional)
+  std::transform(s.begin(), s.end(), s.begin(), ::toupper);
+  // convert to esphome::String and return
+  return String(s.c_str());
 }
 
 // Вычисление контрольной суммы
