@@ -5,9 +5,9 @@
 # Компонент климата
 external_components:
   - source:
-      url: https://github.com/I-am-nightingale/tclac.git
+      url: https://github.com/christoph5180/tclac.git
       type: git
-      ref: master
+      ref: main
     components: [ tclac ]
     refresh: 30s
 

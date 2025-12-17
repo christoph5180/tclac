@@ -1,9 +1,8 @@
 /**
-* Create by Miguel Ángel López on 20/07/19
-* and modify by xaxexa
-* Refactoring & component making:
-* Соловей с паяльником 15.03.2024
-**/
+ * Created by Miguel Angel Lopez on 20/07/19
+ * Modified by xaxexa
+ * ESPHome component refactor completed on 15.03.2024
+ */
 
 #ifndef TCL_ESP_TCL_H
 #define TCL_ESP_TCL_H
@@ -96,13 +95,13 @@ class tclacClimate : public climate::Climate, public esphome::uart::UARTDevice, 
 
 	private:
 		uint8_t checksum;
-		// dataTX с управлением состоит из 38 байт
+		// dataTX holds the 38-byte control frame payload
 		uint8_t dataTX[38];
-		// А dataRX по прежнему из 61 байта
+		// dataRX still contains the 61-byte status frame payload
 		uint8_t dataRX[61];
-		// Команда запроса состояния
+		// Command frame that requests the current AC state
 		uint8_t poll_message_[8] = {0xBB,0x00,0x01,0x04,0x02,0x01,0x00,0xBD};
-		// Инициализация и начальное наполнение переменных состоянй переключателей
+		// Initialize and seed the state-tracking fields
 		bool beeper_status_;
 		bool display_status_;
 		bool force_mode_status_;
