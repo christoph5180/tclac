@@ -33,7 +33,7 @@ substitutions:
 # Alle eingetragenen Zeilen müssen exakt auf dieser Einrückungsebene stehen – sonst kommt es zu Fehlern!
 packages:
   remote_package:
-    url: https://github.com/sorz2122/tclac.git
+    url: https://github.com/christoph5180/tclac.git
     ref: master
     files:
     # v – Zeilen müssen exakt hier ausgerichtet sein, sonst gibt’s Probleme!
