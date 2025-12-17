@@ -1,6 +1,13 @@
 # 🌀 TCL Air Conditioner Integration for Home Assistant
 
-> 🇩🇪 Übersetzt mit ChatGPT – erfolgreich getestet mit **TCL TAC-12CHDA**  
+
+> 🇩🇪 Übersetzt mit ChatGPT – erfolgreich getestet mit TCL TAC-09CHSD/TPG11l  
+> Vor den Anpassungen hatte ich erhebliche Probleme: Die Einstellungen wurden nicht sofort übernommen und mussten mehrfach wiederholt werden. Außerdem lief die unveränderte Version nicht mit der aktuellen ESPHome-Version 2025.12.0.  
+  
+> 🇩🇪 Translated with ChatGPT – successfully tested with TCL TAC-09CHSD/TPG11l  
+> Before making the adjustments, I had significant issues: the settings were not applied immediately and had to be executed several times. Also, the unmodified version did not work with the current ESPHome version 2025.12.0.
+
+
 > Einfaches DIY-Projekt mit ESP32 + USB-Kabel. Keine Cloud nötig.
 
 ---
