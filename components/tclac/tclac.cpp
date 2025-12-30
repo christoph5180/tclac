@@ -20,6 +20,7 @@ constexpr size_t TCL_STATUS_FRAME_MIN_SIZE = 40;
 ClimateTraits tclacClimate::traits() {
 	auto traits = climate::ClimateTraits();
 
+	traits.set_supports_current_temperature(true);
 
 	if (this->supported_modes_.empty()) {
 		traits.add_supported_mode(climate::CLIMATE_MODE_OFF);
