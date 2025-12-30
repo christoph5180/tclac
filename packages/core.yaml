@@ -7,7 +7,7 @@ external_components:
   - source:
       url: https://github.com/christoph5180/tclac.git
       type: git
-      ref: main
+      ref: master
     components: [ tclac ]
     refresh: 30s
 
