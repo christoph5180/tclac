@@ -103,8 +103,8 @@ class tclacClimate : public climate::Climate, public esphome::uart::UARTDevice, 
 		// Команда запроса состояния
 		uint8_t poll_message_[8] = {0xBB,0x00,0x01,0x04,0x02,0x01,0x00,0xBD};
 		// Инициализация и начальное наполнение переменных состоянй переключателей
-		bool beeper_status_;
-		bool display_status_;
+		bool beeper_status_ = true;
+		bool display_status_ = true;
 		bool force_mode_status_;
 		uint8_t switch_preset = 0;
 		bool module_display_status_;
@@ -121,6 +121,9 @@ class tclacClimate : public climate::Climate, public esphome::uart::UARTDevice, 
 
 		tclacClimate() : PollingComponent(5 * 1000), checksum(0) {
 		}
+
+		bool get_beeper_state() const { return beeper_status_; }
+		bool get_display_state() const { return display_status_; }
 
 		void readData();
 		void takeControl();

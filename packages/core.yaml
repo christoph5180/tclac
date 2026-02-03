@@ -135,7 +135,10 @@ switch:
     id: beep_mode
     entity_category: config
     restore_mode: RESTORE_DEFAULT_ON
-    optimistic: true
+    optimistic: false
+    update_interval: 5s
+    lambda: |-
+      return id(${device_name}climate).get_beeper_state();
     on_turn_on:
       then:
         lambda: !lambda |-
@@ -152,7 +155,10 @@ switch:
     id: display_mode
     entity_category: config
     restore_mode: RESTORE_DEFAULT_ON
-    optimistic: true
+    optimistic: false
+    update_interval: 5s
+    lambda: |-
+      return id(${device_name}climate).get_display_state();
     on_turn_on:
       then:
         lambda: !lambda |-

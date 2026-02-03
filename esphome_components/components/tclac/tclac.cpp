@@ -138,6 +138,8 @@ void tclacClimate::readData() {
 	target_temperature = (dataRX[FAN_SPEED_POS] & SET_TEMP_MASK) + 16;
 
 	//ESP_LOGD("TCL", "TEMP: %f ", current_temperature);
+	display_status_ = (dataRX[MODE_POS] & 0b01000000) != 0;
+	beeper_status_ = (dataRX[MODE_POS] & 0b00100000) != 0;
 
 	bool device_is_on = (dataRX[MODE_POS] & MODE_STATUS_POWER_FLAG) != 0;
 	if (device_is_on) {
@@ -213,7 +215,7 @@ void tclacClimate::readData() {
 		
 		// Обработка данны
 		preset = ClimatePreset::CLIMATE_PRESET_NONE;
-		if (dataRX[7] & (1 << 6)){
+		if (dataRX[7] & (1 << 7)){
 			preset = ClimatePreset::CLIMATE_PRESET_ECO;
 		} else if (dataRX[9] & (1 << 2)){
 			preset = ClimatePreset::CLIMATE_PRESET_COMFORT;
